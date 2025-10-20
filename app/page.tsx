@@ -2,101 +2,193 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="bg-gray-100 text-gray-800 font-sans">
+      {/* CABEÇALHO */}
+      <header className="bg-gray-800 text-white shadow-md sticky top-0 z-50">
+        <div className="container mx-auto flex justify-between items-center p-4">
+          <h1 className="text-2xl font-bold">IgrejApp</h1>
+          <nav>
+            <ul className="flex space-x-6">
+              <li><a href="#inicio" className="hover:text-blue-400 transition-colors">Início</a></li>
+              <li><a href="#planos" className="hover:text-blue-400 transition-colors">Planos</a></li>
+              <li><a href="#sobre" className="hover:text-blue-400 transition-colors">Sobre</a></li>
+              <li><a href="#contato" className="hover:text-blue-400 transition-colors">Contato</a></li>
+            </ul>
+          </nav>
         </div>
+      </header>
+
+      {/* CONTEÚDO PRINCIPAL */}
+      <main>
+        {/* SEÇÃO INÍCIO (HERO) */}
+        <section id="inicio" className="bg-blue-600 text-white text-center py-20">
+          <div className="container mx-auto">
+            <h2 className="text-5xl font-bold mb-4">Organize sua igreja de forma simples e eficiente</h2>
+            <p className="text-xl mb-8">
+              O IgrejApp é a solução completa para a gestão de membros, finanças e eventos.
+            </p>
+            {/* IMPORTANTE:
+              1. Crie uma pasta 'images' dentro da pasta 'public/'.
+              2. Coloque a imagem do seu programa lá.
+              3. Altere 'imagem-do-programa.png' para o nome do seu arquivo.
+            */}
+            {/* <Image
+              src="/images/imagem-do-programa.png"
+              alt="Tela do programa IgrejApp"
+              width={800}
+              height={500}
+              className="mx-auto rounded-lg shadow-xl mt-4"
+              priority
+            /> */}
+            <a 
+              href="#planos" 
+              className="mt-8 inline-block bg-white text-blue-600 font-bold py-3 px-8 rounded-full text-lg hover:bg-gray-200 transition-transform transform hover:scale-105"
+            >
+              Conheça os Planos
+            </a>
+          </div>
+        </section>
+
+        {/* SEÇÃO PLANOS -- NOVA VERSÃO COM CARDS */}
+        <section id="planos" className="bg-white py-20">
+          <div className="container mx-auto text-center">
+            <h2 className="text-4xl font-bold mb-4">Nossos Planos</h2>
+            <p className="text-lg text-gray-600 mb-12">
+              Escolha o plano que melhor se adapta à sua congregação.
+            </p>
+
+            {/* Container dos Cards */}
+            <div className="flex flex-col lg:flex-row justify-center gap-8 px-4">
+
+              {/* Card 1: Básico */}
+              <div className="border border-gray-200 rounded-lg p-8 w-full lg:w-1/3 flex flex-col shadow-lg">
+                <h3 className="text-2xl font-bold mb-4">Básico</h3>
+                <p className="text-4xl font-bold mb-6">R$ 49<span className="text-lg font-normal">/mês</span></p>
+                <ul className="text-left space-y-3 text-gray-600 mb-8 flex-grow">
+                  <li className="flex items-center"><span className="text-green-500 mr-2">✔</span>Até 100 membros</li>
+                  <li className="flex items-center"><span className="text-green-500 mr-2">✔</span>Controle Financeiro Básico</li>
+                  <li className="flex items-center"><span className="text-green-500 mr-2">✔</span>Gestão de Eventos</li>
+                  <li className="flex items-center"><span className="text-green-500 mr-2">✔</span>Suporte via Email</li>
+                </ul>
+                <a href="#contato" className="mt-auto bg-gray-800 text-white font-bold py-3 px-6 rounded-full hover:bg-gray-700 transition-colors">
+                  Quero o Básico
+                </a>
+              </div>
+
+              {/* Card 2: Profissional (Destaque) */}
+              <div className="border-2 border-blue-600 rounded-lg p-8 w-full lg:w-1/3 flex flex-col shadow-xl relative transform lg:scale-105">
+                <div className="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 bg-blue-600 text-white text-sm font-bold px-4 py-1 rounded-full">
+                  MAIS POPULAR
+                </div>
+                <h3 className="text-2xl font-bold mb-4">Profissional</h3>
+                <p className="text-4xl font-bold text-blue-600 mb-6">R$ 99<span className="text-lg font-normal">/mês</span></p>
+                <ul className="text-left space-y-3 text-gray-600 mb-8 flex-grow">
+                  <li className="flex items-center"><span className="text-green-500 mr-2">✔</span>Até 500 membros</li>
+                  <li className="flex items-center"><span className="text-green-500 mr-2">✔</span>Controle Financeiro Avançado</li>
+                  <li className="flex items-center"><span className="text-green-500 mr-2">✔</span>Relatórios Automáticos</li>
+                  <li className="flex items-center"><span className="text-green-500 mr-2">✔</span>Integração com App de Membros</li>
+                  <li className="flex items-center"><span className="text-green-500 mr-2">✔</span>Suporte Prioritário</li>
+                </ul>
+                <a href="#contato" className="mt-auto bg-blue-600 text-white font-bold py-3 px-6 rounded-full hover:bg-blue-700 transition-colors">
+                  Assinar o Profissional
+                </a>
+              </div>
+
+              {/* Card 3: Premium */}
+              <div className="border border-gray-200 rounded-lg p-8 w-full lg:w-1/3 flex flex-col shadow-lg">
+                <h3 className="text-2xl font-bold mb-4">Premium</h3>
+                <p className="text-4xl font-bold mb-6">R$ 199<span className="text-lg font-normal">/mês</span></p>
+                <ul className="text-left space-y-3 text-gray-600 mb-8 flex-grow">
+                  <li className="flex items-center"><span className="text-green-500 mr-2">✔</span>Membros Ilimitados</li>
+                  <li className="flex items-center"><span className="text-green-500 mr-2">✔</span>Todos os recursos do Profissional</li>
+                  <li className="flex items-center"><span className="text-green-500 mr-2">✔</span>Gestão de Múltiplas Congregações</li>
+                  <li className="flex items-center"><span className="text-green-500 mr-2">✔</span>Consultoria de Implantação</li>
+                  <li className="flex items-center"><span className="text-green-500 mr-2">✔</span>Suporte 24/7</li>
+                </ul>
+                <a href="#contato" className="mt-auto bg-gray-800 text-white font-bold py-3 px-6 rounded-full hover:bg-gray-700 transition-colors">
+                  Falar com um especialista
+                </a>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        {/* SEÇÃO CONTATO -- NOVA VERSÃO COM FORMULÁRIO */}
+        <section id="contato" className="bg-gray-100 py-20">
+          <div className="container mx-auto text-center">
+            <h2 className="text-4xl font-bold mb-4">Entre em Contato</h2>
+            <p className="text-lg text-gray-600 mb-12 max-w-2xl mx-auto">
+              Tem alguma dúvida ou sugestão? Preencha o formulário abaixo e nossa equipe retornará o mais breve possível.
+            </p>
+
+            {/* Formulário */}
+            <form className="max-w-xl mx-auto bg-white p-8 rounded-lg shadow-md text-left">
+              {/* Campo Nome */}
+              <div className="mb-6">
+                <label htmlFor="name" className="block text-gray-700 font-bold mb-2">
+                  Seu Nome
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
+                  placeholder="Digite seu nome completo"
+                  required
+                />
+              </div>
+
+              {/* Campo Email */}
+              <div className="mb-6">
+                <label htmlFor="email" className="block text-gray-700 font-bold mb-2">
+                  Seu Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
+                  placeholder="exemplo@email.com"
+                  required
+                />
+              </div>
+
+              {/* Campo Mensagem */}
+              <div className="mb-6">
+                <label htmlFor="message" className="block text-gray-700 font-bold mb-2">
+                  Mensagem
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={5}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
+                  placeholder="Deixe sua dúvida ou sugestão aqui..."
+                  required
+                ></textarea>
+              </div>
+
+              {/* Botão de Envio */}
+              <div className="text-center">
+                <button
+                  type="submit"
+                  className="w-full bg-blue-600 text-white font-bold py-3 px-8 rounded-full text-lg hover:bg-blue-700 transition-colors transform hover:scale-105"
+                >
+                  Enviar Mensagem
+                </button>
+              </div>
+            </form>
+
+          </div>
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+
+      {/* RODAPÉ */}
+      <footer className="bg-gray-800 text-white text-center py-6">
+        <div className="container mx-auto">
+          <p>&copy; 2025 IgrejApp. Todos os direitos reservados.</p>
+        </div>
       </footer>
     </div>
   );
